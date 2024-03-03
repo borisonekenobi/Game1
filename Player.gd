@@ -39,7 +39,7 @@ func _input(event):
 		var viewportSize = get_viewport().get_visible_rect().size
 		mousePos -= playerPos
 		
-		handheld.rotation.z = Vector2(0, 1).angle_to_point(mousePos)
+		handheld.rotation.z = -Vector2(0, 0).angle_to_point(mousePos) - PI / 2
 		print("Mouse Motion at: ", event.position)
 		print("pos at: ", $Camera3D.unproject_position(position))
 
