@@ -21,9 +21,9 @@ func _physics_process(delta):
 	var holding_right = Input.is_action_pressed("player_right")
 	
 	if holding_left and !holding_right:
-		velocity.x = SPEED
-	if holding_right and !holding_left:
 		velocity.x = -SPEED
+	if holding_right and !holding_left:
+		velocity.x = SPEED
 	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
