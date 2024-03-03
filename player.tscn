@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddjc3hrew4m83"]
+[gd_scene load_steps=7 format=3 uid="uid://ddjc3hrew4m83"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_ym0h8"]
 
@@ -9,6 +9,12 @@ albedo_color = Color(0.392157, 0.231373, 0.788235, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_8m36a"]
 material = SubResource("StandardMaterial3D_rfwvs")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nq62v"]
+albedo_color = Color(0.882353, 0.0745098, 0.6, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q5pnr"]
+material = SubResource("StandardMaterial3D_nq62v")
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_ym0h8")
@@ -24,3 +30,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 13)
+light_energy = 6.725
+light_size = 1.685
+spot_range = 270.685
+
+[node name="Handheld" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Handheld"]
+transform = Transform3D(0.25, 0, 0, 0, 4, 0, 0, 0, 0.25, 0, 2, 0)
+mesh = SubResource("BoxMesh_q5pnr")
