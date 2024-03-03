@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dbprxlwft2tdh"]
+[gd_scene load_steps=3 format=3 uid="uid://dbprxlwft2tdh"]
 
 [ext_resource type="PackedScene" uid="uid://ddjc3hrew4m83" path="res://player.tscn" id="1_8ccs2"]
+[ext_resource type="PackedScene" path="res://wall.tscn" id="2_pmcak"]
 
 [node name="Main" type="Node"]
 
 [node name="Player" parent="." instance=ExtResource("1_8ccs2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0)
+
+[node name="StaticBody3D" parent="." instance=ExtResource("2_pmcak")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000355721, 0, -4.88358)
