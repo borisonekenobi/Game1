@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://duiys0i2ar21v"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rgxx2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vjf15"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3h5kf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_u3y7v"]
+
+[node name="BasicLevel" type="Node3D"]
+
+[node name="Walls" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Walls"]
+transform = Transform3D(12, 0, 0, 0, 1, 0, 0, 0, 0.01, -2, 0, -4)
+mesh = SubResource("BoxMesh_rgxx2")
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Walls"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+depth = 0.0
+polygon = PackedVector2Array(-8, -2, -8, 6, 4, 6, 4, -2)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+polygon = PackedVector2Array(-8, -8, 8, -8, 8, -4, -4, -4, -4, 0, 8, 0, 8, 8, -8, 8)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 8, 0, 0, 4)
+mesh = SubResource("BoxMesh_vjf15")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(16, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -6)
+mesh = SubResource("BoxMesh_3h5kf")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Floor"]
+transform = Transform3D(4, 0, 0, 0, 1, 0, 0, 0, 4, -6, 0, -2)
+mesh = SubResource("BoxMesh_u3y7v")
+skeleton = NodePath("../MeshInstance3D2")
